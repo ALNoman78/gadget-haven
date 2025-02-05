@@ -1,0 +1,155 @@
+[
+    {
+        "product_id": 1,
+        "product_title": "MacBook Air M3",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M3-13-Inch-SIlver-7440.jpg",
+        "category": "Laptop",
+        "price": 799.99,
+        "description": "A reliable laptop with excellent performance for everyday tasks and light gaming.",
+        "specification": [
+            "Intel Core i7",
+            "16GB RAM",
+            "512GB SSD",
+            "15.6-inch Full HD Display",
+            "Windows 11"
+        ],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": 2,
+        "product_title": "MacBook Air M2",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/MacBook-Air-M2-Midnight-8137.jpg",
+        "category": "Laptop",
+        "price": 1199.99,
+        "description": "Lightweight and powerful, with the new M2 chip for unmatched performance.",
+        "specification": [
+            "Apple M2 Chip",
+            "8GB RAM",
+            "256GB SSD",
+            "13.6-inch Retina Display",
+            "macOS Monterey"
+        ],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 3,
+        "product_title": "Lenovo Yoga 7",
+        "product_image": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/yoga-7-2-in-1-14ahp9/yoga-7-2-in-1-14ahp9-01-500x500.webp",
+        "category": "Laptop",
+        "price": 949.99,
+        "description": "A gaming laptop designed for high-performance gaming and multitasking.",
+        "specification": [
+            "AMD Ryzen 5",
+            "16GB RAM",
+            "512GB SSD",
+            "NVIDIA GTX 1650",
+            "15.6-inch Full HD Display",
+            "Windows 11"
+        ],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": 4,
+        "product_title": "Samsung Galaxy S23 Ultra",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Galaxy-S24-Ultra-Titanium-Gray-8816.jpg",
+        "category": "Mobile",
+        "price": 1199.99,
+        "description": "A flagship phone with exceptional camera quality and performance.",
+        "specification": [
+            "Snapdragon 8 Gen 2",
+            "12GB RAM",
+            "256GB Storage",
+            "6.8-inch AMOLED Display",
+            "5000mAh Battery",
+            "Android 13"
+        ],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 5,
+        "product_title": "Apple iPhone 15 Pro",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(5)-1544.jpg",
+        "category": "Mobile",
+        "price": 1299.99,
+        "description": "The latest iPhone with titanium build and the powerful A17 Bionic chip.",
+        "specification": [
+            "A17 Bionic Chip",
+            "6GB RAM",
+            "128GB Storage",
+            "6.1-inch Super Retina XDR Display",
+            "iOS 17"
+        ],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 6,
+        "product_title": "Google Pixel 9 Pro",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Pixel-9-Wintergreen-3768.jpg",
+        "category": "Mobile",
+        "price": 999.99,
+        "description": "A premium phone with the latest AI features and the best camera quality.",
+        "specification": [
+            "Google Tensor G3",
+            "12GB RAM",
+            "128GB Storage",
+            "6.7-inch OLED Display",
+            "5000mAh Battery",
+            "Android 14"
+        ],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 7,
+        "product_title": "OnePlus Buds Pro 3",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/OnePlus-Buds-Pro-3-Midnight-Opus-5173.jpg",
+        "category": "Accessories",
+        "price": 99.99,
+        "description": "An ergonomic mouse with advanced customization options.",
+        "specification": [
+            "Wireless",
+            "Bluetooth/USB Receiver",
+            "4000 DPI Sensor",
+            "Rechargeable Battery"
+        ],
+        "availability": true,
+        "rating": 4.9
+    },
+    {
+        "product_id": 8,
+        "product_title": "Apple AirPods Max",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/2299-90864.jpg",
+        "category": "Accessories",
+        "price": 349.99,
+        "description": "Noise-canceling headphones with high-fidelity audio and long battery life.",
+        "specification": [
+            "Wireless",
+            "Active Noise Cancellation",
+            "30 Hours Battery Life",
+            "Touch Controls"
+        ],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 9,
+        "product_title": "JBL GO 4 Portable",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/JBL-GO-4-Portable-Waterproof-Speaker-Black-orange-2841.jpg",
+        "category": "Accessories",
+        "price": 49.99,
+        "description": "A high-capacity power bank for charging multiple devices on the go.",
+        "specification": [
+            "20,000mAh Capacity",
+            "Dual USB Ports",
+            "Fast Charging",
+            "Compact Design"
+        ],
+        "availability": true,
+        "rating": 4.7
+    }
+]
