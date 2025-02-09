@@ -32,10 +32,10 @@ const Login = () => {
     }
 
     const handleForgetPassword = () => {
-        const email = emailRef
+        const email = emailRef.current.value
 
         if (!email) {
-            console.log('send   ')
+            console.log('Use verified email address')
         }
         else {
             sendPasswordResetEmail(auth, email)
@@ -62,11 +62,11 @@ const Login = () => {
                     </label>
                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                     <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        <a onClick={handleForgetPassword} href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
                 </div>
                 <div className="form-control mt-6">
-                    <button onClick={handleForgetPassword} className="btn btn-primary">Login</button>
+                    <button  className="btn btn-primary">Login</button>
                 </div>
             </form>
         </div>
