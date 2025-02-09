@@ -16,6 +16,7 @@ import PreOrder from './components/PreOrder/PreOrder';
 import Submit from './components/Submit/Submit';
 import { HelmetProvider } from 'react-helmet-async';
 import Providers from './Providers/Providers';
+import Login from './components/Login/Login';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/submit',
         element: <Submit></Submit>,
+      },
+      {
+        path : '/login',
+        element : <Login></Login>
       }
     ]
   },

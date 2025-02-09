@@ -1,23 +1,46 @@
-import { useEffect, useRef, useState } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useRef, useState } from 'react';
 import DynamicText from '../DynamicText/DynamicText';
 import { Helmet } from 'react-helmet-async';
+import { FaEye } from "react-icons/fa6";
+import { AuthContext } from '../../Providers/Providers';
+import { sendEmailVerification } from 'firebase/auth';
+import auth from '../../firebase/firebase.init';
 
 const PreOrder = () => {
-    const [email, setEmail] = useState('');
+    // const [email, setEmail] = useState('');
     const firstNameRef = useRef(null);
+    const [error , setError] = useState('')
+    const [success , setSuccess] = useState(false)
+
+    const { createUser } = useContext(AuthContext)
 
     useEffect(() => {
         firstNameRef.current.focus();
     }, []);
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        setSuccess(false)
+        setError('')
+
+        const userEmail = e.target.email.value;
+        const password = e.target.password.value;
+        
+        createUser (userEmail , password)
+        .then((result) => {
+            console.log(result.user)
+            setSuccess(true)
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+                console.log('email send')
+            })
+        })
+        .catch((error) => {
+            console.log(error.message)
+            setError(error.message)
+            setSuccess(false)
+        })
     };
 
     return (
@@ -84,24 +107,40 @@ const PreOrder = () => {
                         <div className='md:grid-cols-2 grid grid-cols-1 gap-3 w-full'>
                             <div className="sm:col-span-1">
                                 <label
-                                    htmlFor="email"
                                     className="block text-sm/6 font-semibold text-gray-900"
                                 >
                                     Email
                                 </label>
                                 <div className="mt-2.5">
                                     <input
-                                        onChange={handleEmail}
-                                        id="email"
                                         name="email"
                                         type="email"
                                         autoComplete="email"
+                                        placeholder='Email'
                                         className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         required
                                     />
                                 </div>
                             </div>
                             <div className="sm:col-span-1">
+                                <label
+                                    htmlFor="email"
+                                    className="block text-sm/6 font-semibold text-gray-900"
+                                >
+                                    Password
+                                </label>
+                                <div className="mt-2.5">
+                                    <input
+                                        name="password"
+                                        type="password"
+                                        autoComplete="password"
+                                        placeholder='Password'
+                                        className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            {/* <div className="sm:col-span-1">
                                 <label
                                     htmlFor="phone-number"
                                     className="block text-sm/6 font-semibold text-gray-900"
@@ -140,7 +179,7 @@ const PreOrder = () => {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="sm:col-span-2">
                             <label
@@ -173,12 +212,13 @@ const PreOrder = () => {
                         </div>
                     </div>
                     <div className="mt-10">
-                        <Link to='/submit'
+                        {/* <Link to='/submit'
                             type="submit"
                             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Lets talk
-                        </Link>
+                        </Link> */}
+                        <button className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">  Lets Talk</button>
                     </div>
                 </form>
             </div>

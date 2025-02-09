@@ -8,43 +8,43 @@ import auth from '../../firebase/firebase.init';
 const Navbar = () => {
     const location = useLocation()
     const isHomePage = location.pathname === "/";
-    const [user, setUser] = useState(null)
-    const [isError, setError] = useState()
+    // const [user, setUser] = useState(null)
+    // const [isError, setError] = useState()
 
-    const googleProvider = new GoogleAuthProvider()
-    const githubProvider = new GithubAuthProvider()
+    // const googleProvider = new GoogleAuthProvider()
+    // const githubProvider = new GithubAuthProvider()
 
-    const handleLogin = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user)
-                setUser(result.user)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
+    // const handleLogin = () => {
+    //     signInWithPopup(auth, googleProvider)
+    //         .then(result => {
+    //             console.log(result.user)
+    //             setUser(result.user)
+    //         })
+    //         .catch((error) => {
+    //             console.log(error)
+    //         })
+    // }
 
-    const handleGithubSignUp = () => {
-        signInWithPopup(auth , githubProvider)
-        .then(res => {
-            console.log(res.user);
-            setUser(res.user)
-        })
-        .catch(error => {
-            console.log(error)
-            setError(error)
-        })
-    }
+    // const handleGithubSignUp = () => {
+    //     signInWithPopup(auth , githubProvider)
+    //     .then(res => {
+    //         console.log(res.user);
+    //         setUser(res.user)
+    //     })
+    //     .catch(error => {
+    //         console.log(error)
+    //         setError(error)
+    //     })
+    // }
 
-    const handleSignOut = () => {
-        signOut(auth, googleProvider)
-            .then(result => {
-                console.log(result)
-                setUser(null)
-            })
-            .catch(error => console.log(error))
-    }
+    // const handleSignOut = () => {
+    //     signOut(auth, googleProvider)
+    //         .then(result => {
+    //             console.log(result)
+    //             setUser(null)
+    //         })
+    //         .catch(error => console.log(error))
+    // }
 
 
     const list = <>
@@ -93,7 +93,10 @@ const Navbar = () => {
                 <button className="btn btn-ghost btn-circle text-2xl">
                     <GrFavorite />
                 </button>
-                {
+                <button className='btn' >
+                    <NavLink to='/login'>Log In</NavLink>
+                </button>
+                {/* {
                     user && <div className='flex items-center justify-center gap-4'>
                         <img className="rounded-full w-14 h-14" src={user.photoURL} alt="_image Not found" />
                         <div>
@@ -117,7 +120,7 @@ const Navbar = () => {
 
                 {
                     isError && <p className='text-center font-bold text-red-600'>Error : {isError}</p>
-                }
+                } */}
             </div>
         </div>
     )

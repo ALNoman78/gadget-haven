@@ -11,19 +11,21 @@ const Providers = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
-        setLoading(true)
+        // setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signInUser = (email, password) => {
-        setLoading(true)
+        // setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+    const name = 'noman'
 
     const authInfo = {
         user,
         loading,
         createUser,
         signInUser,
+        name
     }
     return (
         <AuthContext.Provider value={authInfo}>
