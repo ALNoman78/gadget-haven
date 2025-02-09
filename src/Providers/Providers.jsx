@@ -20,6 +20,8 @@ const Providers = ({ children }) => {
     }
 
     const authInfo = {
+        user,
+        loading,
         createUser,
         signInUser,
     }
