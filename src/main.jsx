@@ -15,6 +15,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PreOrder from './components/PreOrder/PreOrder';
 import Submit from './components/Submit/Submit';
 import { HelmetProvider } from 'react-helmet-async';
+import Providers from './Providers/Providers';
 
 
 const router = createBrowserRouter([
@@ -55,9 +56,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router}></RouterProvider>
-      <ToastContainer></ToastContainer>
-    </HelmetProvider>
+    <Providers>
+      <HelmetProvider>
+        <RouterProvider router={router}></RouterProvider>
+        <ToastContainer></ToastContainer>
+      </HelmetProvider>
+    </Providers>
   </StrictMode>,
 )
