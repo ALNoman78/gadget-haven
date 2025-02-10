@@ -11,7 +11,7 @@ const Route = ({ children }) => {
         return children;
     }
     return (
-        <NavLink to='/login'>Log In</NavLink>
+        <NavLink to='/login'></NavLink>
     )
 }
 
