@@ -110,18 +110,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/dashboard'  className="btn btn-ghost btn-circle text-2xl ">
+                <Link to='/dashboard' className="btn btn-ghost btn-circle text-2xl ">
                     <IoMdCart></IoMdCart>
                 </Link>
-                <Link to='/dashboard'  className="btn btn-ghost btn-circle text-2xl ">
+                <Link to='/dashboard' className="btn btn-ghost btn-circle text-2xl ">
                     <GrFavorite />
                 </Link>
                 {
                     user ?
                         <>
-                            <div>
-                                {/* <small>{user?.email}</small> */}
-                                {/* <button onClick={handleSignOut} className='btn '>Sign Out</button> */}
+                            <div className='hidden md:flex items-center'>
+                                <small className='mr-2'>{user?.email}</small>
+                                <button onClick={handleSignOut} className='btn '>Sign Out</button>
                             </div>
                         </> :
                         <Link className='btn' to='/login'>Log In</Link>

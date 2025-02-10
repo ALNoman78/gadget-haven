@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 const PreOrder = () => {
     // const [email, setEmail] = useState('');
     const firstNameRef = useRef(null);
-    const [error , setError] = useState('')
-    const [success , setSuccess] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState(false)
 
     const { createUser } = useContext(AuthContext)
 
@@ -27,21 +27,21 @@ const PreOrder = () => {
 
         const userEmail = e.target.email.value;
         const password = e.target.password.value;
-        
-        createUser (userEmail , password)
-        .then((result) => {
-            console.log(result.user)
-            setSuccess(true)
-            sendEmailVerification(auth.currentUser)
-            .then(() => {
-                console.log('email send')
+
+        createUser(userEmail, password)
+            .then((result) => {
+                console.log(result.user)
+                setSuccess(true)
+                sendEmailVerification(auth.currentUser)
+                    .then(() => {
+                        console.log('email send')
+                    })
             })
-        })
-        .catch((error) => {
-            console.log(error.message)
-            setError(error.message)
-            setSuccess(false)
-        })
+            .catch((error) => {
+                console.log(error.message)
+                setError(error.message)
+                setSuccess(false)
+            })
     };
 
     return (
@@ -224,8 +224,22 @@ const PreOrder = () => {
                 </form>
                 <p className='font-medium max-w-xl mx-auto my-2'>
                     Have an Account ?
-                    <Link to= '/login' className='underline ml-2 text-green-500 '>Log In</Link>
+                    <Link to='/login' className='underline ml-2 text-green-500 '>Log In</Link>
                 </p>
+                {
+                    success && <div className="toast toast-top toast-center">
+                        <div className="alert alert-success text-white font-medium">
+                            <span>Account create successfully.</span>
+                        </div>
+                    </div>
+                }
+                {
+                    error && <div className="toast toast-top toast-center">
+                        <div className="alert alert-info bg-red-500">
+                            <span>{error}</span>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
         // </div>
