@@ -1,16 +1,16 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { IoMdCart } from "react-icons/io";
 import { GrFavorite } from "react-icons/gr";
-import { useContext, useState } from 'react';
-// import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import auth from '../../firebase/firebase.init';
+import { useContext } from 'react';
 import { AuthContext } from '../../Providers/Providers';
+
+// import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 
 const Navbar = () => {
     const location = useLocation()
     const isHomePage = location.pathname === "/";
 
-    const { user, signOut } = useContext(AuthContext)
+    const { user, signOutUser } = useContext(AuthContext)
     console.log(user)
     // const [user, setUser] = useState(null)
     // const [isError, setError] = useState()
@@ -51,7 +51,7 @@ const Navbar = () => {
     // }
 
     const handleSignOut = () => {
-        signOut()
+        signOutUser()
             .then((res) => {
                 console.log(res, 'user sign out')
             })
@@ -64,7 +64,9 @@ const Navbar = () => {
     const list = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/statistics'>Statistics</NavLink></li>
-        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        {
+            user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        }
         <li><NavLink to='/order'>Pre-Order</NavLink></li>
     </>
     return (
@@ -108,10 +110,11 @@ const Navbar = () => {
                     <GrFavorite />
                 </button>
                 {
-                    user ? <>
-                        <small>user?.email</small>
-                        <button onClick={handleSignOut} className='btn'>Sign Out</button>
-                    </> :
+                    user ?
+                        <>
+                            <small>{user?.email}</small>
+                            <button onClick={handleSignOut} className='btn'>Sign Out</button>
+                        </> :
                         <Link className='btn' to='/login'>Log In</Link>
                 }
                 {/* <button className='' > */}

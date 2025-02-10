@@ -70,6 +70,20 @@ const Login = () => {
                     <button className="btn btn-primary">Login</button>
                 </div>
             </form>
+            {
+                success && <div className="toast toast-top toast-center">
+                    <div className="alert alert-success text-white font-medium">
+                        <span>Message sent successfully.</span>
+                    </div>
+                </div>
+            }
+            {
+                error && <div className="toast toast-top toast-center">
+                    <div className="alert alert-info bg-red-500">
+                        <span>{error}</span>
+                    </div>
+                </div>
+            }
             <p className="p-4 font-medium ">
                 Create an Account ?
                 <Link to='/order' className="text-green-500 ml-2 underline ">Sign Up</Link>

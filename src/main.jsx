@@ -17,6 +17,7 @@ import Submit from './components/Submit/Submit';
 import { HelmetProvider } from 'react-helmet-async';
 import Providers from './Providers/Providers';
 import Login from './components/Login/Login';
+import Route from './Route/Route';
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         loader: () => fetch('/Data.json'),
-        element: <Dashboard></Dashboard>
+        element: <Route><Dashboard></Dashboard></Route>
       },
       {
         path: '/order',

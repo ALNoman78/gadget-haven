@@ -11,11 +11,11 @@ const Providers = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signInUser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -24,9 +24,9 @@ const Providers = ({ children }) => {
     }
 
     useEffect(() => {
-        const unSubscribers = onAuthStateChanged(auth , currentUser => {
-            console.log(currentUser.user , 'current user')
-            setUser(unSubscribers)
+        const unSubscribers = onAuthStateChanged(auth , (currentUser) => {
+            console.log(currentUser , 'current user')
+            setUser(currentUser)
             setLoading(false)
         })
         return () => {
