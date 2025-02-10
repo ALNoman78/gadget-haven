@@ -77,9 +77,9 @@ const Product = () => {
                         {/* </div> */}
                     </div>
                 </div>
-                <div className="card rounded-box grid md:w-[70%] flex-grow">
+                <div className="card rounded-box grid md:m-0 m-3 md:w-[70%] flex-grow">
                     {/* <h3>content : {items.length}</h3> */}
-                    <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                    <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:gap-5 gap-2'>
                         {
                             items.map((category, idx) => <SingleProduct key={idx} item={category}></SingleProduct>)
                         }

@@ -4,7 +4,7 @@ const Footer = () => {
                 <h3 className='text-center text-black font-bold md:text-5xl pt-5'>Gadget Heaven</h3>
                 <p className='text-center mt-4 text-[rgba(9,8,15,0.62)] pb-3'>Leading the way in cutting-edge technology and innovation.</p>
                 <hr />
-            <footer className="footer text-base-content p-10 md:w-7/12 mx-auto flex items-center justify-around">
+            <footer className="footer text-base-content p-10 md:w-7/12 mx-auto flex flex-wrap items-start">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>
