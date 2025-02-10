@@ -3,6 +3,7 @@ import { createContext } from "react"
 import auth from "../firebase/firebase.init"
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth"
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null)
 
 const Providers = ({ children }) => {
