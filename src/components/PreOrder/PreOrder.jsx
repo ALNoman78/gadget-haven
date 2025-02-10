@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa6";
 import { AuthContext } from '../../Providers/Providers';
 import { sendEmailVerification } from 'firebase/auth';
 import auth from '../../firebase/firebase.init';
+import { Link } from 'react-router-dom';
 
 const PreOrder = () => {
     // const [email, setEmail] = useState('');
@@ -221,6 +222,10 @@ const PreOrder = () => {
                         <button className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">  Lets Talk</button>
                     </div>
                 </form>
+                <p className='font-medium max-w-xl mx-auto my-2'>
+                    Have an Account ?
+                    <Link to= '/login' className='underline ml-2 text-green-500 '>Log In</Link>
+                </p>
             </div>
         </div>
         // </div>

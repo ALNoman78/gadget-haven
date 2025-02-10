@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react"
 import { AuthContext } from "../../Providers/Providers"
 import { sendPasswordResetEmail } from "firebase/auth"
 import auth from "../../firebase/firebase.init"
+import { Link } from "react-router-dom"
 
 const Login = () => {
     const [success, setSuccess] = useState(false)
@@ -66,9 +67,13 @@ const Login = () => {
                     </label>
                 </div>
                 <div className="form-control mt-6">
-                    <button  className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary">Login</button>
                 </div>
             </form>
+            <p className="p-4 font-medium ">
+                Create an Account ?
+                <Link to='/order' className="text-green-500 ml-2 underline ">Sign Up</Link>
+            </p>
         </div>
     )
 }

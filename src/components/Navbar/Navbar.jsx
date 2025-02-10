@@ -1,13 +1,17 @@
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { IoMdCart } from "react-icons/io";
 import { GrFavorite } from "react-icons/gr";
-import { useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { useContext, useState } from 'react';
+// import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import auth from '../../firebase/firebase.init';
+import { AuthContext } from '../../Providers/Providers';
 
 const Navbar = () => {
     const location = useLocation()
     const isHomePage = location.pathname === "/";
+
+    const { user, signOut } = useContext(AuthContext)
+    console.log(user)
     // const [user, setUser] = useState(null)
     // const [isError, setError] = useState()
 
@@ -45,6 +49,16 @@ const Navbar = () => {
     //         })
     //         .catch(error => console.log(error))
     // }
+
+    const handleSignOut = () => {
+        signOut()
+            .then((res) => {
+                console.log(res, 'user sign out')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 
 
     const list = <>
@@ -93,9 +107,16 @@ const Navbar = () => {
                 <button className="btn btn-ghost btn-circle text-2xl">
                     <GrFavorite />
                 </button>
-                <button className='btn' >
-                    <NavLink to='/login'>Log In</NavLink>
-                </button>
+                {
+                    user ? <>
+                        <small>user?.email</small>
+                        <button onClick={handleSignOut} className='btn'>Sign Out</button>
+                    </> :
+                        <Link className='btn' to='/login'>Log In</Link>
+                }
+                {/* <button className='' > */}
+                {/* <Link className='btn' to='/login'>Log In</Link> */}
+                {/* </button> */}
                 {/* {
                     user && <div className='flex items-center justify-center gap-4'>
                         <img className="rounded-full w-14 h-14" src={user.photoURL} alt="_image Not found" />
