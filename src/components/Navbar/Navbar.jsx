@@ -89,8 +89,15 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content text-white rounded-box z-[1] mt-3 w-52 p-2 shadow bg-[#9538E2]">
+                        className="menu menu-sm dropdown-content text-white rounded-box z-[1] mt-3 w-52 p-2 shadow bg-[#9538E2] flex-wrap">
                         {list}
+                        {
+                            user &&
+                            <>
+                                <p>{user?.email}</p>
+                                <button onClick={handleSignOut} className='btn '>Sign Out</button>
+                            </>
+                        }
                     </ul>
                 </div>
                 <a className="btn btn-ghost md:text-xl">Gadget Heaven</a>
@@ -103,17 +110,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle text-2xl">
+                <Link to='/dashboard'  className="btn btn-ghost btn-circle text-2xl ">
                     <IoMdCart></IoMdCart>
-                </button>
-                <button className="btn btn-ghost btn-circle text-2xl">
+                </Link>
+                <Link to='/dashboard'  className="btn btn-ghost btn-circle text-2xl ">
                     <GrFavorite />
-                </button>
+                </Link>
                 {
                     user ?
                         <>
-                            <small>{user?.email}</small>
-                            <button onClick={handleSignOut} className='btn'>Sign Out</button>
+                            <div>
+                                {/* <small>{user?.email}</small> */}
+                                {/* <button onClick={handleSignOut} className='btn '>Sign Out</button> */}
+                            </div>
                         </> :
                         <Link className='btn' to='/login'>Log In</Link>
                 }
