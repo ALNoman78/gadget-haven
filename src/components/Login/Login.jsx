@@ -70,6 +70,7 @@ const Login = () => {
                     <button className="btn btn-primary">Login</button>
                 </div>
             </form>
+            {/* tosatify notification added */}
             {
                 success && <div className="toast toast-top toast-center">
                     <div className="alert alert-success text-white font-medium">
